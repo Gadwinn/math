@@ -182,3 +182,7 @@ Math::mtRand(1, 100);                   // Mersenne Twister random int
 Full alias list: `abs`, `acos`, `acosh`, `asin`, `asinh`, `atan`, `atan2`, `atanh`, `baseConvert`, `bindec`, `cos`, `cosh`, `decbin`, `dechex`, `decoct`, `deg2rad`, `exp`, `expm1`, `fdiv`, `floor`*, `ceil`*, `getrandmax`, `hexdec`, `hypot`, `intdiv`, `isFinite`, `isInfinite`, `isNan`, `log`, `log10`, `log1p`, `max`, `min`, `mtGetrandmax`, `mtRand`, `mtSrand`, `octdec`, `pi`, `pow`, `rad2deg`, `rand`, `sin`, `sinh`, `sqrt`, `srand`, `tan`, `tanh`.
 
 > Methods marked `*` are enhanced aliases of `Math::round()` and accept a `$multiple` parameter.
+
+## License
+
+MIT, see [LICENSE](LICENSE).
