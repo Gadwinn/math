@@ -111,6 +111,25 @@ class MathTest extends TestCase
     {
         $this->assertEquals($expected, Math::round($num, $multiple, $mode));
     }
+
+    /**
+     * The float fallback used without bcmath, called directly so it is covered even
+     * when the extension is loaded (as in the CI).
+     */
+    #[DataProvider('getRoundValues')]
+    public function testRoundFloatFallback($expected, $num, $multiple = 1, $mode = Math::HALF_AWAY_FROM_ZERO)
+    {
+        $roundFloat = new \ReflectionMethod(Math::class, 'roundFloat');
+
+        $this->assertEqualsWithDelta($expected, $roundFloat->invoke(null, $num, $multiple, $mode), 1e-9);
+    }
+
+    public function testRoundFloatFallbackInvalidMode(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+
+        (new \ReflectionMethod(Math::class, 'roundFloat'))->invoke(null, 1.5, 1, 999);
+    }
     public static function getRoundValues()
     {
         return [
